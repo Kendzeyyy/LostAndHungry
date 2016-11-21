@@ -2,20 +2,43 @@
 using System.Collections;
 
 public class ErikController : MonoBehaviour {
+	private ButtonController upButton;
+	private ButtonController downButton;
 
+	public float erikSpeed;
+
+	private GameObject erik;
+	
 	// Use this for initialization
 	void Start () {
+		downButton = GameObject.Find ("DownButton").GetComponent<ButtonController> ();
+		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();
+
+		erik = GameObject.Find ("ErikPlayer");
 
 	}
 
 	// Update is called once per frame
 	void Update () {
+		erik.transform.Translate (0.05f,0,0);
+		if (upButton.GetPressed ()){
+			MoveErik ("up");
+		}
+		if (downButton.GetPressed ()) {
+			MoveErik ("down");
+		}
+	}
+	void MoveErik(string direction){
+		Debug.Log ("move " + direction);
 
+
+		if (direction.Equals("up")) {
+			erik.transform.Translate (0,0.4f,0);
+		}
+
+		if (direction.Equals("down")) {
+			erik.transform.Translate (0,0,0);
+		}
 	}
 
-	void OnCollision2DEnter(Collision2D col) {
-		Debug.Log (col.collider);
-		transform.Translate (0, 1.0f, 0);
-		col.collider.transform.Translate (0, 0.5f, 0);
-	}
 }
