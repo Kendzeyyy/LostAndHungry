@@ -1,8 +1,15 @@
-﻿
+﻿using UnityEngine;
+using System.Collections;
+
+
+public class SwipeControl : MonoBehaviour {
+
 //inside class
 Vector2 firstPressPos;
 Vector2 secondPressPos;
 Vector2 currentSwipe;
+
+
 
 public void Swipe()
 {
@@ -26,15 +33,16 @@ public void Swipe()
 			currentSwipe.Normalize();
 
 			//swipe upwards
-			if(currentSwipe.y > 0  currentSwipe.x > -0.5f  currentSwipe.x < 0.5f)
+			if(currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 			{
 				Debug.Log("up swipe");
 			}
 			//swipe down
-			if(currentSwipe.y < 0  currentSwipe.x > -0.5f  currentSwipe.x < 0.5f)
+			if(currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 			{
 				Debug.Log("down swipe");
 			}
 		}
 	}
+}
 }

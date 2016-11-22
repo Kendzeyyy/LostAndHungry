@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
 
 	private ButtonController upButton;
 	private ButtonController downButton;
-	public float speed;
 	public float jump;
 	float moveVelocity;
 	bool grounded = false;
