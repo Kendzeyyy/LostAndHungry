@@ -59,6 +59,7 @@ public class ErikController : MonoBehaviour
 
 	public void OnCollisionEnter2D (Collision2D coll)
 	{
+		if (coll.gameObject.tag == "Enemy") {
 		animator.SetInteger ("die", 3);
 
 		dead = true;
@@ -66,4 +67,5 @@ public class ErikController : MonoBehaviour
 
 	}
 
+}
 }
