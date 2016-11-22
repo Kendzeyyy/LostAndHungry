@@ -13,13 +13,14 @@ public class Enemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		enemy = GameObject.Find ("Enemy");
 		GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		enemy.transform.Translate (-0.05f, 0, 0);
+
 
 	}
 
