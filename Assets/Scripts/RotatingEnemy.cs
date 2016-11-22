@@ -5,6 +5,7 @@ public class RotatingEnemy : Enemies {
 	private GameObject rotateEnemy;
 	// Use this for initialization
 	void Start () {
+		
 		rotateEnemy = GameObject.Find ("RotatingEnemy");
 	}
 	

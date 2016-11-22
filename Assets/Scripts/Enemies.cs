@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemies : MonoBehaviour {
-	private GameObject enemy;
 
+public class Enemies : MonoBehaviour {
+	
 	void OnCollisionEnter2D (Collision2D coll){
 		if (coll.gameObject.name == "ErikPlayer") {
 			Debug.Log ("Hit");
@@ -14,8 +14,8 @@ public class Enemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.tag = "Enemy";
-		enemy = GameObject.Find ("Enemy");
+		
+
 		GetComponent<Collider>();
 	}
 	
@@ -25,5 +25,7 @@ public class Enemies : MonoBehaviour {
 
 	}
 
-}
+	}
+
+
 	
