@@ -4,14 +4,14 @@ using System.Collections;
 public class MovingEnemy : Enemies {
 
 	// Use this for initialization
-	private GameObject movingEnemy;
+	//private GameObject movingEnemy;
 	// Use this for initialization
 	void Start () {
-		movingEnemy = GameObject.Find ("MovingEnemy");
+		//movingEnemy = GameObject.Find ("MovingEnemy");
 	}
 
 	// Update is called once per frame
 	void Update () {
-		movingEnemy.transform.Translate (-0.1f, 0, 0);
+		gameObject.transform.Translate (-0.1f, 0, 0);
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Enemies : MonoBehaviour {
+public class Enemies : EnemySpawner {
 	
 	void OnCollisionEnter2D (Collision2D coll){
 		if (coll.gameObject.name == "ErikPlayer") {
