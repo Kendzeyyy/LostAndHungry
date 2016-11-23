@@ -42,21 +42,21 @@ public class ErikController : MonoBehaviour
 	{
 	
 	
-			
+		if (dead == false) {
 	
-		Debug.Log ("move " + direction);
+			Debug.Log ("move " + direction);
 
 
-		if (direction.Equals ("up")) {
-			erik.transform.Translate (0, 0.4f, 0);
+			if (direction.Equals ("up")) {
+				erik.transform.Translate (0, 0.4f, 0);
+			}
+
+			if (direction.Equals ("down")) {
+				erik.transform.Translate (0, 0, 0);
+			}
 		}
 
-		if (direction.Equals ("down")) {
-			erik.transform.Translate (0, 0, 0);
-		}
 	}
-
-
 	public void OnCollisionEnter2D (Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Enemy") {
