@@ -27,7 +27,7 @@ public class ErikController : MonoBehaviour
 	void Update () {
 
 		if (dead == false) {
-			erik.transform.Translate (0.05f, 0, 0);
+			erik.transform.Translate (0.20f, 0, 0);
 		}
 			if (upButton.GetPressed ()) {
 				MoveErik ("up");
