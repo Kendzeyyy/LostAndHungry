@@ -1,11 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 public class PauseGame : MonoBehaviour {
-	public Transform canvas;
 
+	//----------Variables-----------------------------------------------------------------------------------------------------
 
+	public Button pause;
+	private GameObject tausta;
+	bool esimerkki = false;
+
+	//-----------Start-------------------------------------------------------------------------------------------------------
+
+	void Start (){
+		tausta = GameObject.Find ("Canvas");
+		tausta.SetActive (false);
+		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();
+		Debug.Log (pause);
+		pause.onClick.AddListener(()=> Pause());
+	}
+
+	//-----------Update-------------------------------------------------------------------------------------------------------
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -13,17 +28,22 @@ public class PauseGame : MonoBehaviour {
 			Pause();
 		}
 	}
+
+	//------------------------------------------------------------------------------------------------------------------------
+
 	public void Pause()
 	{
-		if (canvas.gameObject.activeInHierarchy == false)
+		if (esimerkki)
 		{
-			canvas.gameObject.SetActive(true);
+			esimerkki = !esimerkki;
+			tausta.SetActive(true);
 			Time.timeScale = 0;
-
 		}
+
 		else
 		{
-			canvas.gameObject.SetActive(false);
+			esimerkki = !esimerkki;
+			tausta.SetActive(false);
 			Time.timeScale = 1;
 		}
 	}
