@@ -14,7 +14,7 @@ public class FlappyGenerator : MonoBehaviour {
 		float y = Random.Range(-69.3f, -56.7f);
 
 		// amount of generated obstacles and point counter
-		if(x < 1000) {
+		if(x < 200) {
 			Instantiate(obstacle, new Vector3(x * 6.0f, y, 0),Quaternion.identity);
 			x++;
 		}
