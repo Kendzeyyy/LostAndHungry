@@ -2,7 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// attach to UI Text component (with the full text already there)
+/*
+ This script creates a typewriter effect for UI text.
+ attach to UI Text component (with the full text already there)
+ author: Ahlstrom
+*/
+
 
 public class TextPrint : MonoBehaviour 
 {
@@ -11,7 +16,8 @@ public class TextPrint : MonoBehaviour
 	string story;
 
 	void Awake () 
-	{
+	{	
+		// Gets text from the UI text object
 		txt = GetComponent<Text> ();
 		story = txt.text;
 		txt.text = "";
@@ -22,6 +28,7 @@ public class TextPrint : MonoBehaviour
 
 	IEnumerator PlayText()
 	{
+		// loop that prints 1 char at the time
 		foreach (char c in story) 
 		{
 			txt.text += c;

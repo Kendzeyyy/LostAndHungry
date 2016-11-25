@@ -2,6 +2,8 @@
 using System.Collections;
 
 
+// This script is not ready and is not yet implemented into the game.
+
 public class SwipeControl : MonoBehaviour {
 
 //inside class

@@ -13,7 +13,7 @@ public class FloorGenerator : MonoBehaviour {
 		// obstacles min & max height
 		float y = Random.Range(-11.03f, -11.03f);
 
-		// amount of floor created
+		// amount of floor created amd distance between them
 		if(x < 200) {
 			Instantiate(obstacle, new Vector3(x * 10.0f, y, 0),Quaternion.identity);
 			x++;
