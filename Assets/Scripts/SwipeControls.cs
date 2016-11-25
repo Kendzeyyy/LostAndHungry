@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+// WIP
 // This script is not ready and is not yet implemented into the game.
 
 public class SwipeControl : MonoBehaviour {

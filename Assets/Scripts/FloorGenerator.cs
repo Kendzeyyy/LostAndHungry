@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Generates any given objects into the game randomly, between the given values.
+This script is meant to create floor in to the JetPack level.
+Attach floor object into this script in Unity.
+author: Ahlström
+*/
+
 public class FloorGenerator : MonoBehaviour {
 
 	public GameObject obstacle;
