@@ -2,31 +2,30 @@
 using System.Collections;
 
 
-public class Enemies : EnemySpawner {
-	public AudioClip impact;
-	AudioSource Hit;
+// kaikkien vihollisten yhteinen ohjain
+// Author: Jenna Kopra
 
-	void OnCollisionEnter2D (Collision2D coll){
-		if (coll.gameObject.name == "ErikPlayer") {
+public class Enemies : MonoBehaviour {
+	//public AudioClip impact;
+	//AudioSource Hit;
+
+	void OnCollisionEnter2D (Collision2D coll){												// törmäyksen metodi
+		if (coll.gameObject.name == "ErikPlayer") {											// jos törmää erikin hahmoon
 			//GetComponent<AudioSource>().PlayOneShot("Hit");
-			Debug.Log ("Hit");
-			Destroy (gameObject);
+			Debug.Log ("Hit");																// kertoo consolessa "Hit"										
+			Destroy (gameObject);															// tuhoaa vihollisen
 
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
+
+	void Start () {																			// suorittaa ohjelman alkaessa
 		
 
-		GetComponent<Collider>();
+		GetComponent<Collider>();															// hakee colliderin
 	}
 	
-	// Update is called once per frame
-	void Update () {
 
-
-	}
 
 	}
 
