@@ -2,25 +2,33 @@
 using System.Collections;
 using UnityEngine.UI;
 
+/* Author: Kendy Nguyen
+ * Tämä script keskeyttää pelin painamalla
+ * Pause logoa vasemmasta ylänurkasta.
+ * Koodi asettaa pelin ajaksi 0
+ * ja tulostaa canvaksen näytölle missä
+ * on pause menu.
+ */ 
+
 public class PauseGame : MonoBehaviour {
 
-	//----------Variables-----------------------------------------------------------------------------------------------------------------------------------------
+//----------Variables--------------------------------------------------------------------------------------------------------------------------------------------
 
 	public Button pause;													// pause nappi
 	private GameObject tausta;												// peli objekti tausta
 	bool esimerkki = false;													// esimerkki boolean arvo = false
 
-	//-----------Start--------------------------------------------------------------------------------------------------------------------------------------------
+//-----------Start-----------------------------------------------------------------------------------------------------------------------------------------------
 
 	void Start (){
 		tausta = GameObject.Find ("Canvas");								// etsii Unity ohjelmasta "Canvasta"
 		tausta.SetActive (false);											// kun peli käynistyy, asettaa canvaksen pois päältä
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// etsii Unity ohjelmasta "PauseLogo"
 		Debug.Log (pause);													// 
-		pause.onClick.AddListener(()=> Pause());							// 
+		pause.onClick.AddListener(()=> Pause());							// Pause nappia painatessa => Pause
 	}
 
-	//-----------Update-------------------------------------------------------------------------------------------------------------------------------------------
+//-----------Update----------------------------------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))								// jos painaa kerran "Esc"

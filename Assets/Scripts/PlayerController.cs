@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Author: Kendy Nguyen
+ * Tämä script sallii pelaajan hyppäämään
+ * pelissä painamalla "Up" nappia Unityssa.
+ * Tämä estää myös tuplahyppäämisen. 
+ */
+
 public class PlayerController : MonoBehaviour {
 
 //-----------Variables--------------------------------------------------------------------------------------------------------------
@@ -40,5 +46,5 @@ public class PlayerController : MonoBehaviour {
 	}
 	void OnTriggerExit2D(){																		// tarkistaa onko hahmo maassa
 		grounded = false;																		// jos ei ole maassa niin grounded arvo on false
-	}
+	}																							// tämä estää pelaajan hyppäävän ilmassa
 }
