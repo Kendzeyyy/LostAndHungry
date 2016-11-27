@@ -55,4 +55,20 @@ public class PauseGame : MonoBehaviour {
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
 		}																	// Jos arvoksi asettaa esim. 2 niin peli on 2x nopeampi kuin normaalisti
 	}
+
+	public void Restart (){
+//		Application.LoadLevel1 (Application.loadedLevel);
+	}
+
+	public void MainMenu (){
+//		Application.LoadLevel1 (0);
+	}
+
+	public void Exit(){
+		Application.Quit ();
+	}
+
+
+
+
 }
