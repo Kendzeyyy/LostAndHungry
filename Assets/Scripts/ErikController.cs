@@ -52,21 +52,16 @@ public class ErikController : MonoBehaviour
 		}
 
 	}
-	public void OnCollisionEnter2D (Collision2D coll)								// törmäyksen metodi
+	void OnCollisionEnter2D (Collision2D coll)								// törmäyksen metodi
 	{
+		Debug.Log ("test");
 		if (coll.gameObject.tag == "Enemy") {										// jos erik törmää objectiin jolle on määrätty tagi Enemy
 		animator.SetInteger ("die", 3);												// suorittaa animaation "die"
 
 		dead = true;																// boolean dead muuttuu trueksi
-<<<<<<< HEAD
+
 		Debug.Log ("Hit");															// kertoo consolessa "Hit"
 
-
-=======
-		Debug.Log ("Hit");
-																	
-		
->>>>>>> e9ccbd3465802ce9f7ad1d1a18951959109098cb
 	}
 
 }
