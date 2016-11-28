@@ -4,6 +4,7 @@ using System.Collections;
 
 // Erikin ohjain
 // Author: Jenna Kopra
+using UnityEngine.SceneManagement;
 
 public class ErikController : MonoBehaviour
 {
@@ -57,9 +58,15 @@ public class ErikController : MonoBehaviour
 		animator.SetInteger ("die", 3);												// suorittaa animaation "die"
 
 		dead = true;																// boolean dead muuttuu trueksi
+<<<<<<< HEAD
 		Debug.Log ("Hit");															// kertoo consolessa "Hit"
 
 
+=======
+		Debug.Log ("Hit");
+																	
+		
+>>>>>>> e9ccbd3465802ce9f7ad1d1a18951959109098cb
 	}
 
 }
