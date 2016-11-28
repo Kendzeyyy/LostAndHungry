@@ -13,12 +13,12 @@ public class FloorGenerator1 : MonoBehaviour {
 	public GameObject floor;
 
 	// floor generation start point
-	float x = 8;
+	float x = 12;
 
 	void Update () {
 
 		// obstacles min & max height
-		float y = Random.Range(150f, 150f);
+		float y = Random.Range(163f, 163f);
 
 		// amount of floor created amd distance between them
 		if(x < 2200) {
