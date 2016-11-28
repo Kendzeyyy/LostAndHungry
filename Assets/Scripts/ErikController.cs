@@ -9,7 +9,7 @@ public class ErikController : MonoBehaviour
 {
 	private ButtonController upButton;											// ylöspäinnappi
 	private Animator animator;													// vaihtaa Erikin animaatioita
-	private bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
+	public bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
 	private GameObject erik;													// Erikin hahmo
 	private Rigidbody2D erikinkeho;												// Erikin keho
 
@@ -58,6 +58,7 @@ public class ErikController : MonoBehaviour
 
 		dead = true;																// boolean dead muuttuu trueksi
 		Debug.Log ("Hit");															// kertoo consolessa "Hit"
+
 
 	}
 

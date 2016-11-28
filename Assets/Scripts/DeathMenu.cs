@@ -16,20 +16,31 @@ public class DeathMenu : MonoBehaviour {
 //---------Variables--------------------------------------------------------------------------------------------------
 
 	private GameObject background;
-
+	private ErikController hahmo;
+	private Button nappi1;
+	private Button nappi2;
 
 
 //--------------------------------------------------------------------------------------------------------------------
 
 	void Start () {
-		background = GameObject.Find ("Canvas");
+		background = GameObject.Find ("DeathMenu");
+		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
+		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
+		nappi1.onClick.AddListener (() => Restart ());
+		nappi2.onClick.AddListener (() => ToMenu ());
 		background.SetActive (false);
+		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
+
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
-		
+		if (hahmo.dead) {
+			background.SetActive (true);
+			Debug.Log (hahmo);
+		}
 	}
 
 //--------------------------------------------------------------------------------------------------------------------

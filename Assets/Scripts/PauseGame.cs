@@ -26,7 +26,6 @@ public class PauseGame : MonoBehaviour {
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// etsii Unity ohjelmasta "PauseLogo"
 		tausta.SetActive (false);											// kun peli käynistyy, asettaa canvaksen pois päältä
 		pause.onClick.AddListener(()=> Pause());							// Pause nappia painatessa => Pause
-		Debug.Log (pause);													// 
 	}
 
 //-----------Update----------------------------------------------------------------------------------------------------------------------------------------------
@@ -71,8 +70,4 @@ public class PauseGame : MonoBehaviour {
 	public void Exit(){
 		Application.Quit ();
 	}
-
-
-
-
 }
