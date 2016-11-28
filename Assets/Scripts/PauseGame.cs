@@ -23,16 +23,17 @@ public class PauseGame : MonoBehaviour {
 
 	void Start (){
 		tausta = GameObject.Find ("Canvas");								// etsii Unity ohjelmasta "Canvasta"
-		tausta.SetActive (false);											// kun peli käynistyy, asettaa canvaksen pois päältä
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// etsii Unity ohjelmasta "PauseLogo"
-		Debug.Log (pause);													// 
+		tausta.SetActive (false);											// kun peli käynistyy, asettaa canvaksen pois päältä
 		pause.onClick.AddListener(()=> Pause());							// Pause nappia painatessa => Pause
+		Debug.Log (pause);													// 
 	}
 
 //-----------Update----------------------------------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))								// jos painaa kerran "Esc"
+			
 		{
 			Pause();														// ohjelma pysähtyy
 		}
@@ -58,13 +59,13 @@ public class PauseGame : MonoBehaviour {
 	}
 
 	public void Restart (){
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen uudestaan
 
 	}
 
 
-	public void MainMenu (){
-		SceneManager.LoadScene ("StartMenu");
+	public void MainMenu (){												
+		SceneManager.LoadScene ("StartMenu");								// lataa "StartMenu" scenen
 	}
 
 	public void Exit(){

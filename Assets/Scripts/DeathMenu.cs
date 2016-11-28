@@ -29,6 +29,7 @@ public class DeathMenu : MonoBehaviour {
 //--------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
+		
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -41,6 +42,7 @@ public class DeathMenu : MonoBehaviour {
 
 	public void Restart (){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen
+		background.SetActive(true);
 
 	}
 
@@ -50,7 +52,7 @@ public class DeathMenu : MonoBehaviour {
 		SceneManager.LoadScene ("StartMenu");
 
 	}
-
+	
 //------------------------------------------------------------------------------------------------------------------
 
 }
