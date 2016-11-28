@@ -23,7 +23,7 @@ public class DeathMenu : MonoBehaviour {
 
 	void Start () {
 		background = GameObject.Find ("Canvas");
-		background.SetActive (false);
+		background.SetActive (true);
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
