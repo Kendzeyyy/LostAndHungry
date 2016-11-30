@@ -3,6 +3,10 @@ using System.Collections;
 
 public class RespectCounter : MonoBehaviour {
 
+	private float score = 0.0f;
+
+	public Text scoreText;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +14,8 @@ public class RespectCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		score += Time.deltaTime;
+		scoreText.text = ((int)score).ToString();
 	
 	}
 }
