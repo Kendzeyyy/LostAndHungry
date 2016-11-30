@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: f0c905f4b07204775a6d99d7f8a83cd4
-timeCreated: 1480421246
+timeCreated: 1480492201
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: icy_fairy_0
+    21300002: icy_fairy_1
+    21300004: icy_fairy_2
+    21300006: icy_fairy_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +55,59 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: icy_fairy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: icy_fairy_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 28
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: icy_fairy_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: icy_fairy_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
