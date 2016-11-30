@@ -16,7 +16,7 @@ public class ErikController : MonoBehaviour
 
 
 
-	void Start ()																//suorittaa ohjelman alussa
+	void Start ()																	//suorittaa ohjelman alussa
 	{
 
 		animator = GetComponent<Animator>();										// kertoo mikä on animatorin

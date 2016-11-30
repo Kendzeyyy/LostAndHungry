@@ -49,16 +49,14 @@ public class PauseGame : MonoBehaviour {
 								
 			tausta.SetActive(true);											// tausta.SetACtive (Canvas) on tosi eli pause menu on päällä
 			taustaBoost.SetActive(false);									// 
-									//
+																			//
 			Time.timeScale = 0;												// asettaa pelin ympäristölle ajaksi 0
 		}
 
 		else  																// muuten
 		{									
 			tausta.SetActive(false);										// tausta.SetACtive (Canvas) on epätosi eli pause menu menee pois päältä
-			taustaBoost.SetActive(true);									// 
-			erikMate.SetActive (true);										// 
-			enemies.SetActive (true);										// 
+			taustaBoost.SetActive(true);									// 									// 
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
 		}	
 	}
