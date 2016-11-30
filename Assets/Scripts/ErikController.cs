@@ -29,7 +29,7 @@ public class ErikController : MonoBehaviour
 	void Update () {																// päivittää kerran framessa	
 
 		if (dead == false) {														// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erik.transform.Translate (0.20f, 0, 0);									// liikuttaa erikiä oikealla
+			erikinkeho.velocity = new Vector2(5,erikinkeho.velocity.y);
 		}
 		if (upButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("up");
@@ -46,13 +46,13 @@ public class ErikController : MonoBehaviour
 
 
 			if (direction.Equals ("up")) {
-				erikinkeho.velocity = new Vector2(0, 10); 							// Erikin nousu
+				erikinkeho.AddForce (transform.up * 500);							// Erikin nousu
 			}
 				
 		}
 
 	}
-	void OnCollisionEnter2D (Collision2D coll)								// törmäyksen metodi
+	void OnCollisionEnter2D (Collision2D coll)										// törmäyksen metodi
 	{
 		Debug.Log ("test");
 		if (coll.gameObject.tag == "Enemy") {										// jos erik törmää objectiin jolle on määrätty tagi Enemy
