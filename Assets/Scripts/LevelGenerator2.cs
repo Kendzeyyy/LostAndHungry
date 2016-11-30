@@ -33,7 +33,7 @@ public class LevelGenerator2 : MonoBehaviour {
 				x++;
 		} else {
 			// Obstacles min & max height. All objects created inside these values.
-				float y = Random.Range(450f, 450f);
+				float y = Random.Range(470f, 470f);
 
 			// Sets the max amount of generated obstacles and space between them.
 			Instantiate(enemy2, new Vector3(x * 2000.0f, y, 0),Quaternion.identity);
