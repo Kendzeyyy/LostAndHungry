@@ -7,9 +7,9 @@ public class erikJump : ButtonController {
 	private Animator animator;													// vaihtaa Erikin animaatioita
 	public bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
 	private GameObject erik;
-	bool grounded = false;
+	public bool grounded = false;
 	private Rigidbody2D keho;	
-
+	public float jump;	
 
 
 
@@ -27,7 +27,7 @@ public class erikJump : ButtonController {
 
 		if (dead == false) {
 			// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erik.transform.Translate (20f, 0, 0);
+			erik.transform.Translate (30f, 0, 0);
 			animator.SetInteger ("crouch", 1);// liikuttaa erikiä oikealla
 		}
 		if (upButton.GetPressed ()) {
@@ -55,12 +55,14 @@ public class erikJump : ButtonController {
 			Debug.Log ("move " + direction);										// kertoo consolessa kun erik liikkuu ja minne
 
 
-			if (direction.Equals ("up")) {
-				keho.velocity = new Vector2(0, 10);													// Erikin nousu
+			if (direction.Equals ("up") && (grounded==true)) {
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (							// hakee component liikkumisvauhti = Vector2
+			GetComponent<Rigidbody2D> ().velocity.x, jump);
+			grounded = false;// Erikin nousu
 			}
-			if (direction.Equals ("down")) {
+			if (direction.Equals ("down") && (grounded==true)) {
 				animator.SetInteger ("crouch", 4);	
-				keho.velocity = new Vector2(0, -10); 	
+				keho.velocity = new Vector2(0, -50f); 	
 
 				// Erikin nousu
 			}
@@ -71,6 +73,11 @@ public class erikJump : ButtonController {
 	void OnCollisionEnter2D (Collision2D coll)											// törmäyksen metodi
 	{
 		Debug.Log ("test");
+		if (coll.gameObject.tag == "Ground") {
+			Debug.Log ("toimii");
+			grounded = true;
+
+		}
 		if (coll.gameObject.tag == "Enemy") {										// jos erik törmää objectiin jolle on määrätty tagi Enemy
 			animator.SetInteger ("die", 3);												// suorittaa animaation "die"
 
@@ -88,6 +95,6 @@ public class erikJump : ButtonController {
 	void OnTriggerExit2D(){																		// tarkistaa onko hahmo maassa
 		grounded = false;																		// jos ei ole maassa niin grounded arvo on false
 	}	
-																						// tämä estää pelaajan hyppäävän ilmassa
+																					// tämä estää pelaajan hyppäävän ilmassa
 }
 
