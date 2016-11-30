@@ -15,8 +15,7 @@ public class RespectCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		score += Time.deltaTime;
+		score += Time.deltaTime * 5;
 		scoreText.text = ((int)score).ToString();
-	
 	}
 }
