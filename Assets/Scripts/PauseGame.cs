@@ -16,48 +16,48 @@ public class PauseGame : MonoBehaviour {
 //----------Variables--------------------------------------------------------------------------------------------------------------------------------------------
 
 	public Button pause;													// pause nappi
+	public Button resume;
 	private GameObject tausta;												// peli objekti tausta
 	bool esimerkki = false;													// esimerkki boolean arvo = false
 
 //-----------Start-----------------------------------------------------------------------------------------------------------------------------------------------
 
 	void Start (){
-		tausta = GameObject.Find ("Canvas");								// etsii Unity ohjelmasta "Canvasta"
+		tausta = GameObject.Find ("Pause Background");						// etsii Unity ohjelmasta "Canvasta"
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// etsii Unity ohjelmasta "PauseLogo"
-		tausta.SetActive (false);											// kun peli käynistyy, asettaa canvaksen pois päältä
+		resume = GameObject.Find ("Resume").GetComponent<Button> ();											
+		Debug.Log(tausta);
 		pause.onClick.AddListener(()=> Pause());							// Pause nappia painatessa => Pause
+		resume.onClick.AddListener(()=> Pause());
+		tausta.SetActive (false);
 	}
 
-//-----------Update----------------------------------------------------------------------------------------------------------------------------------------------
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape))								// jos painaa kerran "Esc"
-			
-		{
-			Pause();														// ohjelma pysähtyy
-		}
-	}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	public void Pause()
-	{
+	void Update(){
 		if (esimerkki)														// jos (esimerkki)
 		{
-			esimerkki = !esimerkki;											// esimerkki = epätosi esimerkki
+								
 			tausta.SetActive(true);											// tausta.SetACtive (Canvas) on tosi eli pause menu on päällä
 			Time.timeScale = 0;												// asettaa pelin ympäristölle ajaksi 0 eli kaikki pysähtyy paitsi musiikki
 		}
 
 		else  																// muuten
-		{
-			esimerkki = !esimerkki;											// esimerkki = epätosi esimerkki
+		{									
 			tausta.SetActive(false);										// tausta.SetACtive (Canvas) on epätosi eli pause menu menee pois päältä
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
-		}																	// Jos arvoksi asettaa esim. 2 niin peli on 2x nopeampi kuin normaalisti
+		}	
 	}
 
+
+//-----------Pause------------------------------------------------------------------------------------------------------------------------------------------------
+
+	public void Pause(){
+		esimerkki = !esimerkki;												//
+	}
+
+
 	public void Restart (){
+		Time.timeScale = 1;													// asettaa ajaksi 1 sen jälkeen kun pause menu on sulkeutunut
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen uudestaan
 
 	}
@@ -65,9 +65,5 @@ public class PauseGame : MonoBehaviour {
 
 	public void MainMenu (){												
 		SceneManager.LoadScene ("StartMenu");								// lataa "StartMenu" scenen
-	}
-
-	public void Exit(){
-		Application.Quit ();
 	}
 }

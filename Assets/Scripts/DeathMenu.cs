@@ -20,7 +20,6 @@ public class DeathMenu : MonoBehaviour {
 	private Button nappi1;
 	private Button nappi2;
 
-
 //--------------------------------------------------------------------------------------------------------------------
 
 	void Start () {
@@ -39,7 +38,7 @@ public class DeathMenu : MonoBehaviour {
 	void Update () {
 		if (hahmo.dead) {
 			background.SetActive (true);
-			Debug.Log ("aaaaaaaaa");
+			Debug.Log ("aaaaaaaarggghhhhhh");
 		}
 	}
 
