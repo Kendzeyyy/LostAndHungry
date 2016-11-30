@@ -21,7 +21,7 @@ public class RespectCounter : MonoBehaviour {
 			return;
 		}
 
-		score += Time.deltaTime * 5;
+		score += Time.deltaTime;
 		scoreText.text = ((int)score).ToString();
 	}
 
