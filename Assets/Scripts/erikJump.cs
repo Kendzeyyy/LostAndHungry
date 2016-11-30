@@ -1,29 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class erikJump : ButtonController {
+public class erikJump : ButtonController
+{
 	private ButtonController upButton;
-	private ButtonController downButton;// ylöspäinnappi
-	private Animator animator;													// vaihtaa Erikin animaatioita
-	public bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
+	private ButtonController downButton;
+// ylöspäinnappi
+	private Animator animator;
+	// vaihtaa Erikin animaatioita
+	public bool dead = false;
+	// boolean joka kertoo onko Erik kuollut vai ei
 	private GameObject erik;
 	public bool grounded = false;
-	private Rigidbody2D keho;	
-	public float jump;	
+	private Rigidbody2D keho;
+	public float jump;
 
 
 
 	// Use this for initialization
-	void Start () {
-		animator = GetComponent<Animator>();										// kertoo mikä on animatorin	// hakee upButtonin
+	void Start ()
+	{
+		animator = GetComponent<Animator> ();										// kertoo mikä on animatorin	// hakee upButtonin
 		erik = GameObject.Find ("ErikPlayer");
 		upButton = GameObject.Find ("ButtonUp").GetComponent<ButtonController> ();				// etsii "ButtonUp" Unity ohjelmasta
 		downButton = GameObject.Find ("ButtonDown").GetComponent<ButtonController> ();
-		keho = GetComponent<Rigidbody2D>();		
+		keho = GetComponent<Rigidbody2D> ();		
 	}
 	
 	// Update is called once per frame
-	void Update () {																// päivittää kerran framessa	
+	void Update ()
+	{																// päivittää kerran framessa	
 
 		if (dead == false) {
 			// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
@@ -32,17 +38,17 @@ public class erikJump : ButtonController {
 		}
 		if (upButton.GetPressed ()) {
 			 
-				// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
-				MoveErik ("up");
+			// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+			MoveErik ("up");
 
-			}
-
-
-			if (downButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
-				MoveErik ("down");
-
-			}
 		}
+
+
+		if (downButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+			MoveErik ("down");
+
+		}
+	}
 
 
 
@@ -55,14 +61,14 @@ public class erikJump : ButtonController {
 			Debug.Log ("move " + direction);										// kertoo consolessa kun erik liikkuu ja minne
 
 
-			if (direction.Equals ("up") && (grounded==true)) {
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (							// hakee component liikkumisvauhti = Vector2
-			GetComponent<Rigidbody2D> ().velocity.x, jump);
-			grounded = false;// Erikin nousu
+			if (direction.Equals ("up") && (grounded == true)) {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (// hakee component liikkumisvauhti = Vector2
+					GetComponent<Rigidbody2D> ().velocity.x, jump);
+				grounded = false;// Erikin nousu
 			}
-			if (direction.Equals ("down") && (grounded==true)) {
+			if (direction.Equals ("down") && (grounded == true)) {
 				animator.SetInteger ("crouch", 4);	
-				keho.velocity = new Vector2(0, -50f); 	
+				keho.velocity = new Vector2 (0, -50f); 	
 
 				// Erikin nousu
 			}
@@ -70,6 +76,7 @@ public class erikJump : ButtonController {
 		}
 
 	}
+
 	void OnCollisionEnter2D (Collision2D coll)											// törmäyksen metodi
 	{
 		Debug.Log ("test");
@@ -89,12 +96,15 @@ public class erikJump : ButtonController {
 
 	}
 
-	void OnTriggerEnter2D(){																	// tarkistaa onko hahmo maassa
+	void OnTriggerEnter2D ()
+	{																	// tarkistaa onko hahmo maassa
 		grounded = true;																		// jos on maassa niin grounded arvo on true
 	}
-	void OnTriggerExit2D(){																		// tarkistaa onko hahmo maassa
+
+	void OnTriggerExit2D ()
+	{																		// tarkistaa onko hahmo maassa
 		grounded = false;																		// jos ei ole maassa niin grounded arvo on false
-	}	
-																					// tämä estää pelaajan hyppäävän ilmassa
+	}
+	// tämä estää pelaajan hyppäävän ilmassa
 }
 
