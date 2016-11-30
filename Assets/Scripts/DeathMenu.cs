@@ -17,6 +17,7 @@ public class DeathMenu : MonoBehaviour {
 
 	private GameObject background;
 	private ErikController hahmo;
+	private GameObject backgroundBoost;
 	private Button nappi1;
 	private Button nappi2;
 
@@ -25,11 +26,13 @@ public class DeathMenu : MonoBehaviour {
 	void Start () {
 
 		background = GameObject.Find ("DeathMenu");
+		backgroundBoost = GameObject.Find ("UpButton");	
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
 		nappi1.onClick.AddListener (() => Restart ());
 		nappi2.onClick.AddListener (() => ToMenu ());
 		background.SetActive (false);
+		backgroundBoost.SetActive (true);
 		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
 	}
 
@@ -46,12 +49,13 @@ public class DeathMenu : MonoBehaviour {
 
 	public void ToggleEndMenu (){
 		gameObject.SetActive (true);
+		backgroundBoost.SetActive (false);
 	}
 
 //-------------------------------------------------------------------------------------------------------------------
 
 	public void Restart (){
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// 
 		background.SetActive(true);
 
 	}

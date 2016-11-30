@@ -62,6 +62,8 @@ public class ErikController : MonoBehaviour
 
 		Debug.Log ("Hit");															// kertoo consolessa "Hit"
 
+			GetComponent<RespectCounter> ().OnDeath ();
+
 	}
 
 }
