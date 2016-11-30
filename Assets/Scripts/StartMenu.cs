@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour {
 //------PlayButton--------------------------------------------------------------------------------------------------
 
 	public void Play (){
-		SceneManager.LoadScene ("Jet");		// lataa scenen
+		SceneManager.LoadScene ("Jet");		
 
 	}
 
@@ -30,6 +30,10 @@ public class StartMenu : MonoBehaviour {
 
 	public void StoryFour (){
 		SceneManager.LoadScene ("StoryText4");
+	}
+
+	public void ToMenu (){
+		SceneManager.LoadScene ("StartMenu");
 	}
 
 //------------------------------------------------------------------------------------------------------------------

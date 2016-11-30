@@ -12,7 +12,7 @@ public class Enemies : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D coll){												// törmäyksen metodi
 		if (coll.gameObject.name == "ErikPlayer") {											// jos törmää erikin hahmoon
 			//GetComponent<AudioSource>().PlayOneShot("Hit");
-			//Debug.Log ("Hit");																// kertoo consolessa "Hit"										
+			//Debug.Log ("Hit");															// kertoo consolessa "Hit"										
 			Destroy (gameObject);															// tuhoaa vihollisen
 
 		}
