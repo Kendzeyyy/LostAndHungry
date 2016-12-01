@@ -88,7 +88,8 @@ public class erikJump : ButtonController
 		if (coll.gameObject.tag == "Enemy") {										// jos erik törmää objectiin jolle on määrätty tagi Enemy
 			animator.SetInteger ("die", 3);												// suorittaa animaation "die"
 
-			dead = true;																// boolean dead muuttuu trueksi
+			dead = true;
+			GetComponent<RespectCounter> ().OnDeath ();																// boolean dead muuttuu trueksi
 
 			Debug.Log ("Hit");															// kertoo consolessa "Hit"
 
