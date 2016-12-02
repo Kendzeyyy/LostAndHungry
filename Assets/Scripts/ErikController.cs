@@ -28,7 +28,7 @@ public class ErikController : MonoBehaviour
 		animator = GetComponent<Animator>();										// kertoo mikä on animatorin
 		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();	// hakee upButtonin
 		downButton = GameObject.Find ("DownButton").GetComponent<ButtonController> ();
-//		erik = GameObject.Find ("ErikPlayer");										// hakee erikin
+		erik = GameObject.Find ("ErikPlayer");										// hakee erikin
 		erikinkeho = GetComponent<Rigidbody2D>();									// hakee erikin kehon
 		Time.timeScale = 1;
 	}
@@ -76,8 +76,7 @@ public class ErikController : MonoBehaviour
 			}
 
 			if (direction.Equals ("down") && grounded && JumpLevel) {
-				animator.SetInteger ("crouch", 4);	
-//				erikinkeho.velocity = new Vector2 (0, -50f); 	
+				animator.SetInteger ("crouch", 4);		
 
 			}
 				
@@ -101,7 +100,8 @@ public class ErikController : MonoBehaviour
 			grounded = true;
 		
 		}
-		}
+	}
+
 		void OnTriggerEnter2D ()
 		{																		// tarkistaa onko hahmo maassa
 			grounded = true;																		// jos on maassa niin grounded arvo on true
@@ -110,8 +110,6 @@ public class ErikController : MonoBehaviour
 		void OnTriggerExit2D ()
 		{																		// tarkistaa onko hahmo maassa
 			grounded = false;																		// jos ei ole maassa niin grounded arvo on false
-		}
-		// tämä estää pelaajan hyppäävän ilmassa
-
+	}
 }
 
