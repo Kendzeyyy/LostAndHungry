@@ -49,7 +49,7 @@ public class DeathMenu : MonoBehaviour {
 			if (hahmo.dead)  {
 				background.SetActive (true);
 				Debug.Log ("aaaaaaaarggghhhhhh");
-				Time.timeScale = 0;
+				Time.timeScale = 1;
 			}
 
 		}
