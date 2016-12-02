@@ -25,6 +25,6 @@ public class FloorGenerator1 : MonoBehaviour {
 			Instantiate(floor, new Vector3(x * 250.0f, y, 0),Quaternion.identity);
 			x++;
 		}
-		Debug.Log(x);
+		//Debug.Log(x);
 	}
 }
