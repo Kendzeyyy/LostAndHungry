@@ -15,9 +15,11 @@ public class DeathMenu : MonoBehaviour {
 
 //---------Variables--------------------------------------------------------------------------------------------------
 
-	private GameObject background;
 	private ErikController hahmo;
+	private GameObject background;
 	private GameObject backgroundBoost;
+	private GameObject backgroundJump;
+	private GameObject backgroundCrouch;
 	private Button nappi1;
 	private Button nappi2;
 
@@ -29,33 +31,42 @@ public class DeathMenu : MonoBehaviour {
 		backgroundBoost = GameObject.Find ("UpButton");	
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
-		nappi1.onClick.AddListener (() => Restart ());
-		nappi2.onClick.AddListener (() => ToMenu ());
+		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
+		Debug.Log (background);
+
+		nappi1.onClick.AddListener (()=> Restart ());
+		nappi2.onClick.AddListener (()=> ToMenu ());
 		background.SetActive (false);
 		backgroundBoost.SetActive (true);
-		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
-		if (hahmo.dead) {
-			background.SetActive (true);
-			Debug.Log ("aaaaaaaarggghhhhhh");
+		if (hahmo == null) {
+			hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController> ();
+		} else {
+			if (hahmo.dead)  {
+				background.SetActive (true);
+				Debug.Log ("aaaaaaaarggghhhhhh");
+				Time.timeScale = 0;
+			}
+
 		}
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
 
 	public void ToggleEndMenu (){
-		gameObject.SetActive (true);
+		background.SetActive (true);
 		backgroundBoost.SetActive (false);
+		Debug.Log ("aaaaaaaaaaaaaaaarghhhh2");
 	}
 
 //-------------------------------------------------------------------------------------------------------------------
 
 	public void Restart (){
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// 
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		
 		background.SetActive(true);
 
 	}

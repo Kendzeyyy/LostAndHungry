@@ -9,10 +9,16 @@ using UnityEngine.SceneManagement;
 public class ErikController : MonoBehaviour
 {
 	private ButtonController upButton;											// ylöspäinnappi
+	private ButtonController downButton;
 	private Animator animator;													// vaihtaa Erikin animaatioita
 	public bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
 	private GameObject erik;													// Erikin hahmo
+	public bool grounded = false;
+	public float jump;
 	private Rigidbody2D erikinkeho;												// Erikin keho
+	public bool JumpLevel;
+	public bool JetLevel;
+	public float MovementSpeed;
 
 
 
@@ -21,18 +27,32 @@ public class ErikController : MonoBehaviour
 
 		animator = GetComponent<Animator>();										// kertoo mikä on animatorin
 		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();	// hakee upButtonin
-		erik = GameObject.Find ("ErikPlayer");										// hakee erikin
+		downButton = GameObject.Find ("DownButton").GetComponent<ButtonController> ();
+//		erik = GameObject.Find ("ErikPlayer");										// hakee erikin
 		erikinkeho = GetComponent<Rigidbody2D>();									// hakee erikin kehon
+		Time.timeScale = 1;
 	}
 
 
 	void Update () {																// päivittää kerran framessa	
 
-		if (dead == false) {														// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erikinkeho.velocity = new Vector2(5,erikinkeho.velocity.y);
+		Debug.Log ("MITÄÄÄÄÄÄÄÄÄÄÄÄ: " + Physics.gravity);
+
+		if (dead == false) {			 											// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
+			erikinkeho.velocity = new Vector2(MovementSpeed, erikinkeho.velocity.y);
+			animator.SetInteger ("crouch", 1);// liikuttaa erikiä oikealla
 		}
+
 		if (upButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("up");
+			Debug.Log ("upp");
+		}
+		if (downButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+			MoveErik ("down");
+			Debug.Log ("downn");
+
+
+
 		}
 	}
 
@@ -45,8 +65,20 @@ public class ErikController : MonoBehaviour
 			Debug.Log ("move " + direction);										// kertoo consolessa kun erik liikkuu ja minne
 
 
-			if (direction.Equals ("up")) {
+			if (direction.Equals ("up") && JetLevel) {
 				erikinkeho.AddForce (transform.up * 500);							// Erikin nousu
+			}
+
+			if (direction.Equals ("up") && grounded && JumpLevel) {
+				Debug.Log ("Hypppppyyyyy");
+				erikinkeho.AddForce (new Vector2 (5, 1 * jump));
+				grounded = false;
+			}
+
+			if (direction.Equals ("down") && grounded && JumpLevel) {
+				animator.SetInteger ("crouch", 4);	
+//				erikinkeho.velocity = new Vector2 (0, -50f); 	
+
 			}
 				
 		}
@@ -61,10 +93,25 @@ public class ErikController : MonoBehaviour
 		dead = true;																// boolean dead muuttuu trueksi
 
 		Debug.Log ("Hit");															// kertoo consolessa "Hit"
-
-			GetComponent<RespectCounter> ().OnDeath ();
+		GetComponent<RespectCounter> ().OnDeath ();
 
 	}
+		if (coll.gameObject.tag == "Ground") {
+			Debug.Log ("toimii");
+			grounded = true;
+		
+		}
+		}
+		void OnTriggerEnter2D ()
+		{																		// tarkistaa onko hahmo maassa
+			grounded = true;																		// jos on maassa niin grounded arvo on true
+		}
+
+		void OnTriggerExit2D ()
+		{																		// tarkistaa onko hahmo maassa
+			grounded = false;																		// jos ei ole maassa niin grounded arvo on false
+		}
+		// tämä estää pelaajan hyppäävän ilmassa
 
 }
-}
+
