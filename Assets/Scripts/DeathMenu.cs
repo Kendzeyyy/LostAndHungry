@@ -51,7 +51,6 @@ public class DeathMenu : MonoBehaviour {
 				Debug.Log ("aaaaaaaarggghhhhhh");
 				Time.timeScale = 1;
 			}
-
 		}
 	}
 

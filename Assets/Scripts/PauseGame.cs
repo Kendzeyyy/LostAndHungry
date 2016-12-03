@@ -18,7 +18,8 @@ public class PauseGame : MonoBehaviour {
 	public Button pause;													// pause
 	public Button resume;													// resume
 	private GameObject tausta;												// tausta
-	private GameObject taustaBoost;											// taustaBoost
+	private GameObject taustaUp;											// taustaUp
+	private GameObject taustaDown;											//
 	private GameObject erikMate;											// erikMate
 	private GameObject enemies;												// enemies
 	public bool esimerkki = false;											// bool esimerkki
@@ -27,7 +28,8 @@ public class PauseGame : MonoBehaviour {
 
 	void Start (){
 		tausta = GameObject.Find ("Pause Background");						// 
-		taustaBoost = GameObject.Find ("UpButton");							//
+		taustaUp = GameObject.Find ("UpButton");							//
+		taustaDown = GameObject.Find ("DownButton");
 		erikMate = GameObject.Find ("ErikPlayer");							//
 		enemies = GameObject.Find ("AllEnemies");							//
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// 
@@ -37,7 +39,7 @@ public class PauseGame : MonoBehaviour {
 		pause.onClick.AddListener(()=> Pause());							// 
 		resume.onClick.AddListener(()=> Pause());							// 
 		tausta.SetActive (false);											//
-		taustaBoost.SetActive (true);										//
+		taustaUp.SetActive (true);										//
 
 	}
 
@@ -48,14 +50,16 @@ public class PauseGame : MonoBehaviour {
 		{
 								
 			tausta.SetActive(true);											// tausta.SetACtive (Canvas) on tosi eli pause menu on päällä
-			taustaBoost.SetActive(false);									// 															
+			taustaUp.SetActive(false);										// 				
+			taustaDown.SetActive(false);
 			Time.timeScale = 0;												// asettaa pelin ympäristölle ajaksi 0
 		}
 
 		else  																// muuten
 		{									
 			tausta.SetActive(false);										// tausta.SetACtive (Canvas) on epätosi eli pause menu menee pois päältä
-			taustaBoost.SetActive(true);									// 
+			taustaUp.SetActive(true);										// 
+			taustaDown.SetActive(true);
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
 		}	
 	}
