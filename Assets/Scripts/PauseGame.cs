@@ -17,6 +17,8 @@ public class PauseGame : MonoBehaviour {
 
 	public Button pause;													// pause
 	public Button resume;													// resume
+	private GameObject respect;
+	private GameObject score;
 	private GameObject tausta;												// tausta
 	private GameObject taustaUp;											// taustaUp
 	private GameObject taustaDown;											// taustaDown
@@ -31,6 +33,8 @@ public class PauseGame : MonoBehaviour {
 		tausta = GameObject.Find ("Pause Background");						// 
 		taustaUp = GameObject.Find ("UpButton");							//
 		taustaDown = GameObject.Find ("DownButton");						//
+		respect = GameObject.Find ("Respect");
+		score = GameObject.Find ("Score");
 		erikMate = GameObject.Find ("ErikPlayer");							//
 		enemies = GameObject.Find ("AllEnemies");							//
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// 
@@ -52,6 +56,8 @@ public class PauseGame : MonoBehaviour {
 			tausta.SetActive(true);											// tausta.SetACtive (Canvas) on tosi eli pause menu on päällä
 			taustaUp.SetActive(false);										// 				
 			taustaDown.SetActive(false);									//
+			respect.SetActive (false);
+			score.SetActive (false);
 			Time.timeScale = 0;												// asettaa pelin ympäristölle ajaksi 0
 		}
 
@@ -60,6 +66,8 @@ public class PauseGame : MonoBehaviour {
 			tausta.SetActive(false);										// tausta.SetACtive (Canvas) on epätosi eli pause menu menee pois päältä
 			taustaUp.SetActive(true);										// 
 			taustaDown.SetActive(true);										//
+			respect.SetActive (true);
+			score.SetActive (true);
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
 		}	
 	}
