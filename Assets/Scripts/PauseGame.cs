@@ -40,7 +40,6 @@ public class PauseGame : MonoBehaviour {
 		pause.onClick.AddListener(()=> Pause());							// 
 		resume.onClick.AddListener(()=> Pause());							// 
 		tausta.SetActive (false);											//
-		taustaUp.SetActive (true);											//
 
 	}
 
@@ -52,7 +51,7 @@ public class PauseGame : MonoBehaviour {
 								
 			tausta.SetActive(true);											// tausta.SetACtive (Canvas) on tosi eli pause menu on päällä
 			taustaUp.SetActive(false);										// 				
-			taustaDown.SetActive(false);
+			taustaDown.SetActive(false);									//
 			Time.timeScale = 0;												// asettaa pelin ympäristölle ajaksi 0
 		}
 
@@ -60,7 +59,7 @@ public class PauseGame : MonoBehaviour {
 		{									
 			tausta.SetActive(false);										// tausta.SetACtive (Canvas) on epätosi eli pause menu menee pois päältä
 			taustaUp.SetActive(true);										// 
-			taustaDown.SetActive(true);
+			taustaDown.SetActive(true);										//
 			Time.timeScale = 1;												// asettaa pelin ympäristölle ajaksi 1 eli normaali aika
 		}	
 	}
@@ -72,7 +71,6 @@ public class PauseGame : MonoBehaviour {
 		esimerkki = !esimerkki;												//
 	}
 
-
 	public void Restart (){
 		Time.timeScale = 1;													// asettaa ajaksi 1 sen jälkeen kun pause menu on sulkeutunut
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// lataa scenen uudestaan
@@ -83,3 +81,4 @@ public class PauseGame : MonoBehaviour {
 	}
 }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------

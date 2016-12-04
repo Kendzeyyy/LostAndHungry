@@ -39,20 +39,20 @@ public class ErikController : MonoBehaviour
 
 //--------Update---------------------------------------------------------------------------------------------------------------------------------------------------
 
-	void Update () {																// päivittää kerran framessa	
+	void Update () {																	// päivittää kerran framessa	
 
 		Debug.Log (Physics.gravity);
 
-		if (dead == false) {			 											// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
+		if (dead == false) {			 												// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
 			erikinkeho.velocity = new Vector2(MovementSpeed, erikinkeho.velocity.y);
 			animator.SetInteger ("crouch", 1);// liikuttaa erikiä oikealla
 		}
 
-		if (upButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (upButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("up");
 
 		}
-		if (downButton.GetPressed ()) {												// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (downButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("down");
 
 		} else {
@@ -62,14 +62,15 @@ public class ErikController : MonoBehaviour
 
 //----------MoveErik----------------------------------------------------------------------------------------------------------------------------------------------
 
-	void MoveErik (string direction)												// Erikin hyppy
+	void MoveErik (string direction)													// Erikin hyppy
 	{
 		
-		if (dead == false) {														// Boolean: suorittaa jos erik ei ole kuollut
-			Debug.Log ("move " + direction);										// kertoo consolessa kun erik liikkuu ja minne
+		if (dead == false) {															// Boolean: suorittaa jos erik ei ole kuollut
+			Debug.Log ("move " + direction);											// kertoo consolessa kun erik liikkuu ja minne
 
 			if (direction.Equals ("up") && JetLevel) {
-				erikinkeho.AddForce (transform.up * 500);							
+				erikinkeho.AddForce (transform.up * 500);	
+
 			}
 
 			if (direction.Equals ("up") && grounded && JumpLevel) {
@@ -88,15 +89,15 @@ public class ErikController : MonoBehaviour
 
 //----------Colliding------------------------------------------------------------------------------------------------------------------------------------------
 
-	void OnCollisionEnter2D (Collision2D coll)										// törmäyksen metodi
+	void OnCollisionEnter2D (Collision2D coll)											// törmäyksen metodi
 	{
 		Debug.Log ("test");
-		if (coll.gameObject.tag == "Enemy") {										// jos erik törmää objectiin jolle on määrätty tagi Enemy
-		animator.SetInteger ("die", 3);												// suorittaa animaation "die"
+		if (coll.gameObject.tag == "Enemy") {											// jos erik törmää objectiin jolle on määrätty tagi Enemy
+		animator.SetInteger ("die", 3);													// suorittaa animaation "die"
 
-		dead = true;																// boolean dead muuttuu trueksi
+		dead = true;																	// boolean dead muuttuu trueksi
 
-		Debug.Log ("Hit");															// kertoo consolessa "Hit"
+		Debug.Log ("Hit");																// kertoo consolessa "Hit"
 		GetComponent<RespectCounter> ().OnDeath ();
 
 	}

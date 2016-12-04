@@ -28,7 +28,8 @@ public class DeathMenu : MonoBehaviour {
 	void Start () {
 
 		background = GameObject.Find ("DeathMenu");
-		backgroundBoost = GameObject.Find ("UpButton");	
+		backgroundJump = GameObject.Find ("UpButton");	
+		backgroundCrouch = GameObject.Find ("DownButton");
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
 		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
@@ -37,7 +38,6 @@ public class DeathMenu : MonoBehaviour {
 		nappi1.onClick.AddListener (()=> Restart ());
 		nappi2.onClick.AddListener (()=> ToMenu ());
 		background.SetActive (false);
-		backgroundBoost.SetActive (true);
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,8 @@ public class DeathMenu : MonoBehaviour {
 		} else {
 			if (hahmo.dead)  {
 				background.SetActive (true);
+				backgroundJump.SetActive (false);
+				backgroundCrouch.SetActive (false);
 				Debug.Log ("aaaaaaaarggghhhhhh");
 				Time.timeScale = 1;
 			}
@@ -55,14 +57,6 @@ public class DeathMenu : MonoBehaviour {
 	}
 
 //--------------------------------------------------------------------------------------------------------------------
-
-	public void ToggleEndMenu (){
-		background.SetActive (true);
-		backgroundBoost.SetActive (false);
-		Debug.Log ("aaaaaaaaaaaaaaaarghhhh2");
-	}
-
-//-------------------------------------------------------------------------------------------------------------------
 
 	public void Restart (){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		
@@ -76,7 +70,6 @@ public class DeathMenu : MonoBehaviour {
 		SceneManager.LoadScene ("StartMenu");
 
 	}
-	
-//------------------------------------------------------------------------------------------------------------------
-
 }
+
+//------------------------------------------------------------------------------------------------------------------
