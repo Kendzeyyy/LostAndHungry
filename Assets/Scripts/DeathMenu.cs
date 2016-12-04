@@ -16,10 +16,13 @@ public class DeathMenu : MonoBehaviour {
 //---------Variables--------------------------------------------------------------------------------------------------
 
 	private ErikController hahmo;
+	private GameObject pauseMenu;
 	private GameObject background;
 	private GameObject backgroundBoost;
 	private GameObject backgroundJump;
 	private GameObject backgroundCrouch;
+	private GameObject respect;
+	private GameObject score;
 	private Button nappi1;
 	private Button nappi2;
 
@@ -28,8 +31,11 @@ public class DeathMenu : MonoBehaviour {
 	void Start () {
 
 		background = GameObject.Find ("DeathMenu");
+		pauseMenu = GameObject.Find ("PauseBackground");
 		backgroundJump = GameObject.Find ("UpButton");	
 		backgroundCrouch = GameObject.Find ("DownButton");
+		respect = GameObject.Find ("Respect");
+		score = GameObject.Find ("Score");
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
 		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
@@ -48,8 +54,11 @@ public class DeathMenu : MonoBehaviour {
 		} else {
 			if (hahmo.dead)  {
 				background.SetActive (true);
+				pauseMenu.SetActive (false);
 				backgroundJump.SetActive (false);
 				backgroundCrouch.SetActive (false);
+				respect.SetActive (false);
+				score.SetActive (false);
 				Debug.Log ("aaaaaaaarggghhhhhh");
 				Time.timeScale = 1;
 			}

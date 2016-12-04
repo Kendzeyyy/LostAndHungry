@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 // Erikin ohjain
 // Author: Jenna Kopra
-using UnityEngine.SceneManagement;
+
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -44,19 +45,19 @@ public class ErikController : MonoBehaviour
 		Debug.Log (Physics.gravity);
 
 		if (dead == false) {			 												// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erikinkeho.velocity = new Vector2(MovementSpeed, erikinkeho.velocity.y);
-			animator.SetInteger ("crouch", 1);// liikuttaa erikiä oikealla
+			erikinkeho.velocity = new Vector2(MovementSpeed, erikinkeho.velocity.y);	//
+			animator.SetInteger ("crouch", 1);											// liikuttaa erikiä oikealla
 		}
 
 		if (upButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
-			MoveErik ("up");
+			MoveErik ("up");															//
 
 		}
 		if (downButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
-			MoveErik ("down");
+			MoveErik ("down");															//
 
 		} else {
-			objektiivi.offset = new Vector2 (objektiivi.offset.x, -12);
+			objektiivi.offset = new Vector2 (objektiivi.offset.x, -12);					//
 		}
 	}
 
