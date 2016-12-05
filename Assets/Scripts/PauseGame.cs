@@ -61,7 +61,7 @@ public class PauseGame : MonoBehaviour {
 			Time.timeScale = 0;												// Time set to 0
 		}
 
-		else  																//
+		else  																// else
 		{									
 			tausta.SetActive(false);										// PauseBackground	(off)
 			taustaUp.SetActive(true);										// UpButton			(on)

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 /* Author: Kendy Nguyen
  * This script is for the main menu which
- * you will see as  soon when you open
- * the game. In maine menu you have to
- * choose
+ * you will see as soon when you open
+ * the game. There is "Play", "Story",
+ * "Levels" and "About" button.
  */
 
 
@@ -70,9 +70,19 @@ public class StartMenu : MonoBehaviour {
 		SceneManager.LoadScene ("Level1");
 	}
 
+	//level 1 Dialog
+	public void level1DIalog (){
+		SceneManager.LoadScene ("dialog_level1");
+	}
+
 	//Level 2
 	public void level2 (){
 		SceneManager.LoadScene ("Level2");
+	}
+
+	//level 2 Dialog
+	public void level2Dialog (){
+		SceneManager.LoadScene ("dialog_level2");
 	}
 
 	//Level 3
@@ -98,7 +108,13 @@ public class StartMenu : MonoBehaviour {
 	}
 
 
-//------------------------------------------------------------------------------------------------------------------
+//-------Dialog-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+//--------Start-----------------------------------------------------------------------------------------------------
 
 	void Start (){
 		Time.timeScale = 1;
