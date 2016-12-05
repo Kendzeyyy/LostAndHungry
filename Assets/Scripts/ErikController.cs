@@ -49,11 +49,11 @@ public class ErikController : MonoBehaviour
 			animator.SetInteger ("crouch", 1);											// liikuttaa erikiä oikealla
 		}
 
-		if (upButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (upButton.GetPressed () || Input.GetKeyDown(KeyCode.W)) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("up");															//
 
 		}
-		if (downButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (downButton.GetPressed () || Input.GetKeyDown(KeyCode.S)) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
 			MoveErik ("down");															//
 
 		} else {

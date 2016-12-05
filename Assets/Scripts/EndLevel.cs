@@ -19,7 +19,7 @@ public class EndLevel : MonoBehaviour {
 		timeLeft -= Time.deltaTime;
     	if ( timeLeft < 0 )
     	{
-         SceneManager.LoadScene("Name Of Scene");
+         SceneManager.LoadScene("StartMenu");
     	}
 	}
 }
