@@ -21,7 +21,7 @@ public class StartMenu : MonoBehaviour {
 
 	}
 
-//--------TextButton------------------------------------------------------------------------------------------------
+//--------Story------------------------------------------------------------------------------------------------
 
 	//Story page 1
 	public void Story (){
@@ -47,6 +47,56 @@ public class StartMenu : MonoBehaviour {
 	public void ToMenu (){
 		SceneManager.LoadScene ("StartMenu");
 	}
+
+//--------Levels----------------------------------------------------------------------------------------------------
+
+	//LevelMenu
+	public void LevelMenu (){
+		SceneManager.LoadScene ("LevelMenu");
+	}
+
+	//LoadLevel2
+	public void LevelMenu2 (){
+		SceneManager.LoadScene ("LevelMenu2");
+	}
+
+	//LoadLevel3
+	public void LevelMenu3 (){
+		SceneManager.LoadScene ("LevelMenu3");
+	}
+				
+	//Level 1
+	public void level1 (){
+		SceneManager.LoadScene ("Level1");
+	}
+
+	//Level 2
+	public void level2 (){
+		SceneManager.LoadScene ("Level2");
+	}
+
+	//Level 3
+	public void level3 (){
+		SceneManager.LoadScene ("Level3");
+	}
+
+	//Level 4
+	public void level4 (){
+		SceneManager.LoadScene ("Jet");
+	}
+
+	//Level 5
+	public void level5 (){
+		SceneManager.LoadScene ("level5");
+	}
+
+//---------About----------------------------------------------------------------------------------------------------
+
+	//Load "About" scene
+	public void about (){
+		SceneManager.LoadScene ("About");
+	}
+
 
 //------------------------------------------------------------------------------------------------------------------
 

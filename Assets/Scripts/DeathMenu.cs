@@ -4,10 +4,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 /*Author: Kendy Nguyen
- * DeathMenu class aktivoi "You Died" canvaksen
- * kun pelaaja törmää edessä olevaan
- * objektiin. Canvaksessa on "Restart" ja
- * "Main Menu" nappi.
+ * DeathMenu will activate "You Died" canvas
+ * when you die. Canvas has "Play" button which
+ * will restart the game and "Menu" button
+ * which goes to main menu.
  */
 
 
