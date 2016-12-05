@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class PauseGame : MonoBehaviour {
 
 //----------Variables--------------------------------------------------------------------------------------------------------------------------------------------
-
+	public Button next;
 	public Button pause;													// pause
 	public Button resume;													// resume
 	private GameObject respect;
@@ -23,13 +23,14 @@ public class PauseGame : MonoBehaviour {
 	private GameObject taustaUp;											// taustaUp
 	private GameObject taustaDown;											// taustaDown
 	private GameObject erikMate;											// erikMate
-	private GameObject enemies;												// enemies
+	private GameObject enemies;		
+	private GameObject dialogi;	// enemies
 	public bool esimerkki = false;											// bool esimerkki
 
 //-----------Start-----------------------------------------------------------------------------------------------------------------------------------------------
 
 	void Start (){
-		
+		dialogi = GameObject.Find ("DialogBox");	
 		tausta = GameObject.Find ("Pause Background");						// 
 		taustaUp = GameObject.Find ("UpButton");							//
 		taustaDown = GameObject.Find ("DownButton");						//
@@ -38,12 +39,14 @@ public class PauseGame : MonoBehaviour {
 		erikMate = GameObject.Find ("ErikPlayer");							//
 		enemies = GameObject.Find ("AllEnemies");							//
 		pause = GameObject.Find ("PauseLogo").GetComponent<Button> ();		// 
-		resume = GameObject.Find ("Resume").GetComponent<Button> ();		//										
+		resume = GameObject.Find ("Resume").GetComponent<Button> ();
+		next = GameObject.Find ("NextButton").GetComponent<Button> ();//										
 		Debug.Log (tausta);
 
 		pause.onClick.AddListener(()=> Pause());							// 
 		resume.onClick.AddListener(()=> Pause());							// 
-		tausta.SetActive (false);											//
+		tausta.SetActive (false);
+		dialogi.SetActive (true);//
 
 	}
 
