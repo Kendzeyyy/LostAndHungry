@@ -76,8 +76,10 @@ public class ErikController : MonoBehaviour
 
 			if (direction.Equals ("up") && grounded && JumpLevel) {
 				Debug.Log ("Hypppppyyyyy");
+				animator.SetInteger ("jump", 7);	
 				erikinkeho.AddForce (new Vector2 (5, 1 * jump));
 				grounded = false;
+			
 			}
 
 			if (direction.Equals ("down") && grounded && JumpLevel) {
@@ -103,6 +105,7 @@ public class ErikController : MonoBehaviour
 
 	}
 		if (coll.gameObject.tag == "Ground") {
+			animator.SetInteger ("jump", 6);
 			Debug.Log ("toimii");
 			grounded = true;
 		
@@ -111,12 +114,15 @@ public class ErikController : MonoBehaviour
 
 		void OnTriggerEnter2D ()
 		{																			// tarkistaa onko hahmo maassa
-			grounded = true;														// jos on maassa niin grounded arvo on true
+			grounded = true;
+		// jos on maassa niin grounded arvo on true
 		}
 
 		void OnTriggerExit2D ()
-		{																			// tarkistaa onko hahmo maassa
-			grounded = false;														// jos ei ole maassa niin grounded arvo on false
+		{		
+		// tarkistaa onko hahmo maassa
+			grounded = false;
+		// jos ei ole maassa niin grounded arvo on false
 	}
 }
 
