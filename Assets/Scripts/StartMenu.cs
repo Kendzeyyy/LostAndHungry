@@ -90,14 +90,29 @@ public class StartMenu : MonoBehaviour {
 		SceneManager.LoadScene ("Level3");
 	}
 
+	//level 3 Dialog
+	public void level3Dialog (){
+		SceneManager.LoadScene ("dialog_level3");
+	}
+
 	//Level 4
 	public void level4 (){
 		SceneManager.LoadScene ("Jet");
 	}
 
+	//level 4 Dialog
+	public void level4Dialog (){
+		SceneManager.LoadScene ("dialog_level4");
+	}
+
 	//Level 5
 	public void level5 (){
 		SceneManager.LoadScene ("level5");
+	}
+
+	//level 5 Dialog
+	public void level5Dialog (){
+		SceneManager.LoadScene ("dialog_level5");
 	}
 
 //---------About----------------------------------------------------------------------------------------------------
