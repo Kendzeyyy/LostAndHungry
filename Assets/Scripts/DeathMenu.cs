@@ -13,72 +13,78 @@ using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour {
 
-//---------Variables--------------------------------------------------------------------------------------------------
+	//---------Variables--------------------------------------------------------------------------------------------------
 
-	private ErikController hahmo;
-	private GameObject pauseMenu;
-	private GameObject background;
-	private GameObject backgroundBoost;
-	private GameObject backgroundJump;
-	private GameObject backgroundCrouch;
-	private GameObject respect;
-	private GameObject score;
-	private Button nappi1;
-	private Button nappi2;
+	private ErikController hahmo;														// hahmo
+	private GameObject pauseMenu;														// pauseMenu
+	private GameObject pauseIcon;														// pauseIcon
+	private GameObject background;														// background
+	private GameObject backgroundBoost;													// backgroundBoost
+	private GameObject backgroundJump;													// backgroundJump
+	private GameObject backgroundCrouch;												// backgroundCrouch
+	private GameObject respect;															// respect
+	private GameObject score;															// score
+	private Button nappi1;																// nappi1
+	private Button nappi2;																// nappi2
+	public Text scoreText;
 
-//--------------------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------------------------------
 
 	void Start () {
 
-		background = GameObject.Find ("DeathMenu");
-		pauseMenu = GameObject.Find ("PauseBackground");
-		backgroundJump = GameObject.Find ("UpButton");	
-		backgroundCrouch = GameObject.Find ("DownButton");
-		respect = GameObject.Find ("Respect");
-		score = GameObject.Find ("Score");
-		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();
-		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();
-		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();
-		Debug.Log (background);
+		background = GameObject.Find ("DeathMenu");										// background 		=	DeathMenu
+		pauseMenu = GameObject.Find ("PauseBackground");								// pauseMenu 		=	PauseBackGround
+		pauseIcon = GameObject.Find ("PauseIcon");										// pauseIcon		=	PauseIcon
+		backgroundJump = GameObject.Find ("UpButton");									// backgroundJump 	=	UpButton
+		backgroundCrouch = GameObject.Find ("DownButton");								// backgroundCrouch =	DownButton
+		respect = GameObject.Find ("Respect");											// respect			=	Respect
+		score = GameObject.Find ("Score");												// score			=	Score
+		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();					// nappi1			=	PlayButton
+		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();					// nappi2			=	MenuButton
+		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();			// hahmo			=	ErikPlayer
+		Debug.Log (background);															// Debug.Log		=	DeathMenu
 
-		nappi1.onClick.AddListener (()=> Restart ());
-		nappi2.onClick.AddListener (()=> ToMenu ());
-		background.SetActive (false);
+		nappi1.onClick.AddListener (()=> Restart ());									// PlayButton => LoadScene.name
+		nappi2.onClick.AddListener (()=> ToMenu ());									// MenuButton => LoadScene.StartMenu
+		background.SetActive (false);													// DeathMenu.SetActive (off)
 	}
 
-//--------------------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------------------------------
 
 	void Update () {
-		if (hahmo == null) {
-			hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController> ();
-		} else {
-			if (hahmo.dead)  {
-				background.SetActive (true);
-				pauseMenu.SetActive (false);
-				backgroundJump.SetActive (false);
-				backgroundCrouch.SetActive (false);
-				respect.SetActive (false);
-				score.SetActive (false);
-				Debug.Log ("aaaaaaaarggghhhhhh");
-				Time.timeScale = 1;
+		if (hahmo == null) {															// 
+			hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController> ();		// hahmo = ErikPlayer
+		} else {																		// 
+			if (hahmo.dead)  {															// ErikPlayer.dead
+				background.SetActive (true);											// DeathMenu.SetActive 			(on)
+				pauseIcon.SetActive (false);											// PauseIcon.SetActive			(off)
+				pauseMenu.SetActive (false);											// PauseBackground.SetActive	(off)
+				backgroundJump.SetActive (false);										// UpButton.SetActive			(off)
+				backgroundCrouch.SetActive (false);										// DownButton.SetActive			(off)
+				respect.SetActive (false);												// Respect.SetActive			(off)
+				score.SetActive (false);												// Score.SetActive				(off)
+				Debug.Log ("aaaaaaaarggghhhhhh");										// Debug.Log
+				Time.timeScale = 1;														// Time set to 1
 			}
 		}
 	}
 
-//--------------------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------------------------------
 
 	public void Restart (){
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		
-		background.SetActive(true);
-
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);					// LoadScene = Level.name
 	}
 
-//------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 
 	public void ToMenu (){
-		SceneManager.LoadScene ("StartMenu");
+		SceneManager.LoadScene ("StartMenu");											// LoadScene = StartMenu
+	}
 
+	//------------------------------------------------------------------------------------------------------------------
+
+	//Author: Mikael Ahlström
+	public void ToggleEndScore (float score) {
+		scoreText.text = ((int)score).ToString ();
 	}
 }
-
-//------------------------------------------------------------------------------------------------------------------
