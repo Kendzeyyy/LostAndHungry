@@ -17,11 +17,11 @@ public class FlappyGenerator : MonoBehaviour {
 	void Update () {
 
 		// Obstacles min & max height. All objects created inside these values.
-		float y = Random.Range(-16f, -555f);
+		float y = Random.Range(11.7f, 5f);
 
 		// Sets the max amount of generated obstacles and space between them.
-		if(x < 200) {
-			Instantiate(obstacle, new Vector3(x * 500.0f, y, 0),Quaternion.identity);
+		if(x < 100) {
+			Instantiate(obstacle, new Vector3(x * 20.0f, y, 0),Quaternion.identity);
 			x++;
 		}
 		Debug.Log(x);
