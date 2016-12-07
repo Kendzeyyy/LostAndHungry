@@ -62,7 +62,7 @@ public class Erikjet : MonoBehaviour
 			dead = true;																// boolean dead muuttuu trueksi
 			Debug.Log ("Hit");															// kertoo consolessa "Hit"
 
-			GetComponent<RespectCounter> ().OnDeath ();
+			GetComponent<RespectCounterJet>().OnDeath();
 
 		}
 
