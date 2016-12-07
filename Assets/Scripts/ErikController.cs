@@ -113,6 +113,8 @@ public class ErikController : MonoBehaviour
 		}
 	}
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 		void OnTriggerEnter2D ()
 		{																			// tarkistaa onko hahmo maassa
 			grounded = true;

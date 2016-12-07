@@ -13,9 +13,10 @@ using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour {
 
-	//---------Variables--------------------------------------------------------------------------------------------------
+//---------Variables--------------------------------------------------------------------------------------------------
 
 	private ErikController hahmo;														// hahmo
+	private Erikjet hahmoJet;															// hahmoJet
 	private GameObject pauseMenu;														// pauseMenu
 	private GameObject pauseIcon;														// pauseIcon
 	private GameObject background;														// background
@@ -26,9 +27,9 @@ public class DeathMenu : MonoBehaviour {
 	private GameObject score;															// score
 	private Button nappi1;																// nappi1
 	private Button nappi2;																// nappi2
-	public Text scoreText;
+	public Text scoreText;																// scoreText
 
-	//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
 
 	void Start () {
 
@@ -42,20 +43,40 @@ public class DeathMenu : MonoBehaviour {
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();					// nappi1			=	PlayButton
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();					// nappi2			=	MenuButton
 		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();			// hahmo			=	ErikPlayer
-		Debug.Log (background);															// Debug.Log		=	DeathMenu
+		hahmoJet = GameObject.Find ("ErikPlayer").GetComponent<Erikjet>();				// hahmo			=	ErikPJet
+		Debug.Log (nappi1);																// Debug.Log		=	DeathMenu
 
 		nappi1.onClick.AddListener (()=> Restart ());									// PlayButton => LoadScene.name
 		nappi2.onClick.AddListener (()=> ToMenu ());									// MenuButton => LoadScene.StartMenu
 		background.SetActive (false);													// DeathMenu.SetActive (off)
 	}
 
-	//--------------------------------------------------------------------------------------------------------------------
+//--------Update----------------------------------------------------------------------------------------------------------------
 
-	void Update () {
+	void Update () {																	// Update
+
+		//JumpLevel
 		if (hahmo == null) {															// 
 			hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController> ();		// hahmo = ErikPlayer
-		} else {																		// 
+		} else {																		// else
 			if (hahmo.dead)  {															// ErikPlayer.dead
+				background.SetActive (true);											// DeathMenu.SetActive 			(on)
+				pauseIcon.SetActive (false);											// PauseIcon.SetActive			(off)
+				pauseMenu.SetActive (false);											// PauseBackground.SetActive	(off)
+				backgroundJump.SetActive (false);										// UpButton.SetActive			(off)
+				backgroundCrouch.SetActive (false);										// DownButton.SetActive			(off)
+				respect.SetActive (false);												// Respect.SetActive			(off)
+				score.SetActive (false);												// Score.SetActive				(off)
+				Debug.Log ("aaaaaaaarggghhhhhh");										// Debug.Log
+				Time.timeScale = 1;														// Time set to 1
+			}
+		}
+
+		//JetLevel
+		if (hahmoJet == null){															//
+			hahmoJet = GameObject.Find ("ErikPlayer").GetComponent<Erikjet> ();			// hahmo = ErikPlayer
+		} else {																		// else
+			if (hahmoJet.dead) {														// ErikPlayer.dead
 				background.SetActive (true);											// DeathMenu.SetActive 			(on)
 				pauseIcon.SetActive (false);											// PauseIcon.SetActive			(off)
 				pauseMenu.SetActive (false);											// PauseBackground.SetActive	(off)
@@ -69,19 +90,19 @@ public class DeathMenu : MonoBehaviour {
 		}
 	}
 
-	//--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
 
 	public void Restart (){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);					// LoadScene = Level.name
 	}
 
-	//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
 	public void ToMenu (){
 		SceneManager.LoadScene ("StartMenu");											// LoadScene = StartMenu
 	}
 
-	//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
 	//Author: Mikael Ahlström
 	public void ToggleEndScore (float score) {

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 
 // Erikin ohjain
@@ -9,7 +11,7 @@ public class Erikjet : MonoBehaviour
 {
 	private ButtonController upButton;											// ylöspäinnappi
 	private Animator animator;													// vaihtaa Erikin animaatioita
-	private bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
+	public bool dead = false;													// boolean joka kertoo onko Erik kuollut vai ei
 	private GameObject erik;													// Erikin hahmo
 	private Rigidbody2D erikinkeho;												// Erikin keho
 	public float MovementSpeed;	
@@ -59,6 +61,8 @@ public class Erikjet : MonoBehaviour
 
 			dead = true;																// boolean dead muuttuu trueksi
 			Debug.Log ("Hit");															// kertoo consolessa "Hit"
+
+			GetComponent<RespectCounter> ().OnDeath ();
 
 		}
 
