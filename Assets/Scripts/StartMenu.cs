@@ -17,7 +17,7 @@ public class StartMenu : MonoBehaviour {
 //------PlayButton--------------------------------------------------------------------------------------------------
 
 	public void Play (){
-		SceneManager.LoadScene ("Level1");		
+		SceneManager.LoadScene ("dialog_level1");		
 
 	}
 
