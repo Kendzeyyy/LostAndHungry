@@ -59,6 +59,7 @@ public class PauseGame : MonoBehaviour {
 			respect.SetActive (false);										// Respect			(off)
 			score.SetActive (false);										// Score			(off)
 			Time.timeScale = 0;												// Time set to 0
+			AudioListener.pause = true;
 		}
 
 		else  																// else
@@ -69,6 +70,7 @@ public class PauseGame : MonoBehaviour {
 			respect.SetActive (true);										// Respect			(on)
 			score.SetActive (true);											// Score			(on)
 			Time.timeScale = 1;												// Time set to 1
+			AudioListener.pause = false;
 		}	
 	}
 

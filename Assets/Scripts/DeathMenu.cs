@@ -43,7 +43,7 @@ public class DeathMenu : MonoBehaviour {
 		nappi1 = GameObject.Find ("PlayButton").GetComponent<Button>();					// nappi1			=	PlayButton
 		nappi2 = GameObject.Find ("MenuButton").GetComponent<Button>();					// nappi2			=	MenuButton
 		hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController>();			// hahmo			=	ErikPlayer
-		hahmoJet = GameObject.Find ("ErikPlayer").GetComponent<Erikjet>();				// hahmo			=	ErikPJet
+		hahmoJet = GameObject.Find ("ErikPlayer").GetComponent<Erikjet>();				// hahmoJet			=	ErikPJet
 		Debug.Log (nappi1);																// Debug.Log		=	DeathMenu
 
 		nappi1.onClick.AddListener (()=> Restart ());									// PlayButton => LoadScene.name
@@ -56,7 +56,7 @@ public class DeathMenu : MonoBehaviour {
 	void Update () {																	// Update
 
 		//JumpLevel
-		if (hahmo == null) {															// 
+		if (hahmo == null) {															// hahmo == null
 			hahmo = GameObject.Find ("ErikPlayer").GetComponent<ErikController> ();		// hahmo = ErikPlayer
 		} else {																		// else
 			if (hahmo.dead)  {															// ErikPlayer.dead
@@ -69,11 +69,12 @@ public class DeathMenu : MonoBehaviour {
 				score.SetActive (false);												// Score.SetActive				(off)
 				Debug.Log ("aaaaaaaarggghhhhhh");										// Debug.Log
 				Time.timeScale = 1;														// Time set to 1
+				AudioListener.pause = true;												// volume set 0
 			}
 		}
 
 		//JetLevel
-		if (hahmoJet == null){															//
+		if (hahmoJet == null){															// hahmoJet == null
 			hahmoJet = GameObject.Find ("ErikPlayer").GetComponent<Erikjet> ();			// hahmo = ErikPlayer
 		} else {																		// else
 			if (hahmoJet.dead) {														// ErikPlayer.dead
@@ -86,6 +87,7 @@ public class DeathMenu : MonoBehaviour {
 				score.SetActive (false);												// Score.SetActive				(off)
 				Debug.Log ("aaaaaaaarggghhhhhh");										// Debug.Log
 				Time.timeScale = 1;														// Time set to 1
+				AudioListener.pause = false;											// volume set 1
 			}
 		}
 	}
