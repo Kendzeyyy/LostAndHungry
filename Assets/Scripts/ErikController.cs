@@ -77,6 +77,7 @@ public class ErikController : MonoBehaviour
 			if (direction.Equals ("up") && grounded && JumpLevel) {
 				Debug.Log ("Hypppppyyyyy");
 				animator.SetInteger ("jump", 7);	
+
 				erikinkeho.AddForce (new Vector2 (5, 1 * jump));
 				grounded = false;
 			
