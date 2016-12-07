@@ -14,14 +14,14 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour {
 
 
-//------PlayButton--------------------------------------------------------------------------------------------------
+	//------PlayButton--------------------------------------------------------------------------------------------------
 
 	public void Play (){
 		SceneManager.LoadScene ("dialog_level1");		
 
 	}
 
-//--------Story------------------------------------------------------------------------------------------------
+	//--------Story------------------------------------------------------------------------------------------------
 
 	//Story page 1
 	public void Story (){
@@ -48,7 +48,7 @@ public class StartMenu : MonoBehaviour {
 		SceneManager.LoadScene ("StartMenu");
 	}
 
-//--------Levels----------------------------------------------------------------------------------------------------
+	//--------Levels----------------------------------------------------------------------------------------------------
 
 	//LevelMenu
 	public void LevelMenu (){
@@ -64,7 +64,7 @@ public class StartMenu : MonoBehaviour {
 	public void LevelMenu3 (){
 		SceneManager.LoadScene ("LevelMenu3");
 	}
-				
+
 	//Level 1
 	public void level1 (){
 		SceneManager.LoadScene ("Level1");
@@ -115,21 +115,20 @@ public class StartMenu : MonoBehaviour {
 		SceneManager.LoadScene ("dialog_level5");
 	}
 
-//---------About----------------------------------------------------------------------------------------------------
+	//level EndText
+	public void TextEnd (){
+		SceneManager.LoadScene ("EndText");
+	}
+
+	//---------About----------------------------------------------------------------------------------------------------
 
 	//Load "About" scene
 	public void about (){
 		SceneManager.LoadScene ("About");
 	}
+		
 
-
-//-------Dialog-----------------------------------------------------------------------------------------------------
-
-
-
-
-
-//--------Start-----------------------------------------------------------------------------------------------------
+	//--------Start-----------------------------------------------------------------------------------------------------
 
 	void Start (){
 		Time.timeScale = 1;

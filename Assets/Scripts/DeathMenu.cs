@@ -87,7 +87,7 @@ public class DeathMenu : MonoBehaviour {
 				score.SetActive (false);												// Score.SetActive				(off)
 				Debug.Log ("aaaaaaaarggghhhhhh");										// Debug.Log
 				Time.timeScale = 1;														// Time set to 1
-				AudioListener.pause = false;											// volume set 1
+				AudioListener.pause = true;												// volume set 0
 			}
 		}
 	}
