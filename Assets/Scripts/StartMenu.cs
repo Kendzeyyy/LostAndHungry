@@ -102,7 +102,7 @@ public class StartMenu : MonoBehaviour {
 
 	//level 4 Dialog
 	public void level4Dialog (){
-		SceneManager.LoadScene ("dialog_level4");
+		SceneManager.LoadScene ("dialog_jet");
 	}
 
 	//Level 5
