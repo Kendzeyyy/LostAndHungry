@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /*
-This script ends levels and moves to the next one.
+This script ends jetlevel and moves to the final cutscene.
 Authors:
 Mikael Ahlström
 Kendy Nguyen

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /*
-This script ends levels and moves to the next one.
+This script ends levels and moves to the next one. There is another script for Jet level. Check EndLevelJet.cs.
 Authors:
 Mikael Ahlström
 Kendy Nguyen

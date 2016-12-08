@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
+/*
+Point counter script for every level except fot jetlevel. Check RespectCounterJet.cs.
+Attach this script to the player in Unity.
+Author: Mikael Ahlström
+*/
  
 public class RespectCounter : MonoBehaviour {
  
@@ -25,7 +31,8 @@ public class RespectCounter : MonoBehaviour {
         score += Time.deltaTime;
         scoreText.text = ((int)score).ToString();
     }
- 
+    
+    // This method is called in ErikController.cs
     public void OnDeath() {
         isDead = true;
         deathMenu.ToggleEndScore (score);
