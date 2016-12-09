@@ -4,17 +4,17 @@ using UnityEngine.EventSystems;
 
 public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler  {
 
-	private bool pressed;												// boolean arvo "pressed"
+	private bool pressed;												
 
-	public void OnPointerDown(PointerEventData eventData){				// methodi OnPointerDown
-		pressed = true;													// pressed = tosi
+	public void OnPointerDown(PointerEventData eventData){				// method OnPointerDown
+		pressed = true;													
 	}
 
-	public void OnPointerUp(PointerEventData eventData){				// methodi OnPointerUp
-		pressed = false;												// pressed = epätosi
+	public void OnPointerUp(PointerEventData eventData){				// method OnPointerUp
+		pressed = false;												
 	}
 
-	public bool GetPressed(){											// bool GetPressed
-		return pressed;													// palaa takaisin bool pressed
+	public bool GetPressed(){											//method GetPressed
+		return pressed;													
 	}
 }

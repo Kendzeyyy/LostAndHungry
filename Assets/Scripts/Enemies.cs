@@ -2,24 +2,24 @@
 using System.Collections;
 
 
-// kaikkien vihollisten yhteinen ohjain
+// controller for all the enemies
 // Author: Jenna Kopra
 
 public class Enemies : MonoBehaviour {
 
-	void OnCollisionEnter2D (Collision2D coll){												// törmäyksen metodi
-		if (coll.gameObject.name == "ErikPlayer") {											// jos törmää erikin hahmoon
-																	// kertoo consolessa "Hit"										
-			Destroy (gameObject);															// tuhoaa vihollisen
+	void OnCollisionEnter2D (Collision2D coll){												// method for hitting
+		if (coll.gameObject.name == "ErikPlayer") {											// hits erik
+																																	
+			Destroy (gameObject);															
 
 		}
 	}
 
 
-	void Start () {																			// suorittaa ohjelman alkaessa
+	void Start () {																			
 		
 
-		GetComponent<Collider>();															// hakee colliderin
+		GetComponent<Collider>();															// gets the collider
 	}
 	
 

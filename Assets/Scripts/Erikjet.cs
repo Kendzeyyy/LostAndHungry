@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-// Erikin ohjain jetpack-kentässä.
+//Erik's controller in the jet level
 // Author: Jenna Kopra
 
 public class Erikjet : MonoBehaviour
@@ -16,53 +16,52 @@ public class Erikjet : MonoBehaviour
 	private Rigidbody2D erikinkeho;												
 	public float MovementSpeed;			
 
-	void Start ()																	//suorittaa ohjelman alussa
-	{
+	void Start ()																	
 
-		animator = GetComponent<Animator>();										// kertoo mikä on animatorin
-		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();	// hakee upButtonin
-		erik = GameObject.Find ("ErikPlayer");										// hakee erikin
-		erikinkeho = GetComponent<Rigidbody2D>();									// hakee erikin kehon
+		animator = GetComponent<Animator>();										// get animator
+		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();	// gets upButton
+		erik = GameObject.Find ("ErikPlayer");										// gets Erik
+		erikinkeho = GetComponent<Rigidbody2D>();									// gets erikinkehon
 	}
 
 
-	void Update () {																// päivittää kerran framessa	
+	void Update () {																	
 
-		if (dead == false) {															// boolean: jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erikinkeho.velocity = new Vector2 (MovementSpeed, erikinkeho.velocity.y);		// liikuttaa erikiä oikealla
+		if (dead == false) {															// boolean: if erik is not dead, he gpes forward
+			erikinkeho.velocity = new Vector2 (MovementSpeed, erikinkeho.velocity.y);		// moves erik to the right
 		
-			if (upButton.GetPressed ()) {													// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (upButton.GetPressed ()) {													// if upbutton is pressed, code does the MoveErik's "Up"
 				MoveErik ("up");
 			}
 		}
 	}
-
-	void MoveErik (string direction)												// Erikin hyppy
+	
+	void MoveErik (string direction)													// Erik's jump
 	{
 
 
-		if (dead == false) {															// Boolean: suorittaa jos erik ei ole kuollut
+		if (dead == false) {															// if erik is not dead
 
-			Debug.Log ("move " + direction);											// kertoo consolessa kun erik liikkuu ja minne
+			Debug.Log ("move " + direction);											
 
 
 			if (direction.Equals ("up")) {
 				
-				erikinkeho.AddForce (transform.up * 800);							// Erikin nousu
+				erikinkeho.AddForce (transform.up * 800);								// Erik's goes higher
 			}
 
 		}
 
 	}
-	public void OnCollisionEnter2D (Collision2D coll)									// törmäyksen metodi
+public void OnCollisionEnter2D (Collision2D coll)										// hitting method
 	{
-		if (coll.gameObject.tag == "Enemy") {											// jos erik törmää objectiin jolle on määrätty tagi Enemy
-			animator.SetInteger ("die", 3);												// suorittaa animaation "die"
+	if (coll.gameObject.tag == "Enemy") {												// if erik hits an object tagged enemy
+		animator.SetInteger ("die", 3);													// does the die animation
 
-			dead = true;																// boolean dead muuttuu trueksi
-			Debug.Log ("Hit");															// kertoo consolessa "Hit"
+			dead = true;																
+			Debug.Log ("Hit");															
 
-			GetComponent<RespectCounterJet>().OnDeath();								// hakee respect counterin
+			GetComponent<RespectCounterJet>().OnDeath();								// gets respect counter
 
 		}
 

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-// Erikin ohjain. 
+// Erik's controller 
 // Author: Jenna Kopra
 
 
@@ -26,16 +26,16 @@ public class ErikController : MonoBehaviour
 
 	//--------Start----------------------------------------------------------------------------------------------------------------------------------------------------
 
-	void Start ()																		//suorittaa ohjelman alussa
+	void Start ()																		
 	{
 
-		animator = GetComponent<Animator> ();											// kertoo mikä on animatorin
-		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();		// hakee upButtonin
-		downButton = GameObject.Find ("DownButton").GetComponent<ButtonController> ();	// hakee DownButtonin
-		erik = GameObject.Find ("ErikPlayer");											// hakee erikin
-		erikinkeho = GetComponent<Rigidbody2D> ();										// hakee erikin kehon
-		Time.timeScale = 1;																// aika
-		objektiivi = GetComponent<CircleCollider2D> ();									// hakee colliderin
+		animator = GetComponent<Animator> ();											// gets animator
+		upButton = GameObject.Find ("UpButton").GetComponent<ButtonController> ();		// gets upButton
+		downButton = GameObject.Find ("DownButton").GetComponent<ButtonController> ();	// gets DownButton
+		erik = GameObject.Find ("ErikPlayer");											// gets erik
+		erikinkeho = GetComponent<Rigidbody2D> ();										// gets erikinkehon
+		Time.timeScale = 1;																// real time
+		objektiivi = GetComponent<CircleCollider2D> ();									// gets collider
 	}
 
 	//--------Update---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -45,16 +45,16 @@ public class ErikController : MonoBehaviour
 
 		Debug.Log (Physics.gravity);
 
-		if (dead == false) {			 												// jos erik ei ole kuollut, hahmo liikkuu eteenpäin
-			erikinkeho.velocity = new Vector2 (MovementSpeed, erikinkeho.velocity.y);	// liikuttaa erikiä oikealla
-			animator.SetInteger ("crouch", 1);											// juoksuanimaatio
+		if (dead == false) {			 												// if erik is not dead, he moves forward
+			erikinkeho.velocity = new Vector2 (MovementSpeed, erikinkeho.velocity.y);	// moves erik to the right
+			animator.SetInteger ("crouch", 1);											// running animation
 		}
 
-		if (upButton.GetPressed () || Input.GetKeyDown (KeyCode.W)) {					// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (upButton.GetPressed () || Input.GetKeyDown (KeyCode.W)) {					// if upbutton is pressed, code does the MoveErik's "Up"
 			MoveErik ("up");															//
 
 		}
-		if (downButton.GetPressed () || Input.GetKeyDown (KeyCode.S)) {					// jos painetaan upButtonnia,suoritetaan MoveErikin "Up"
+		if (downButton.GetPressed () || Input.GetKeyDown (KeyCode.S)) {					// If down button is pressed, the code does the MoveErik's "Down"
 			MoveErik ("down");															//
 
 		} else {
@@ -64,18 +64,18 @@ public class ErikController : MonoBehaviour
 
 	//----------MoveErik----------------------------------------------------------------------------------------------------------------------------------------------
 
-	void MoveErik (string direction)													// Erikin hyppy
+	void MoveErik (string direction)													// Erik's jump
 	{
 		
-		if (dead == false) {															// Boolean: suorittaa jos erik ei ole kuollut
+		if (dead == false) {															// Boolean: if Erik's is not dead
 			Debug.Log ("move " + direction);											
 
-			if (direction.Equals ("up") && JetLevel) {									// hyppää ylöspäin jetissä
+			if (direction.Equals ("up") && JetLevel) {									// goes up with jetpack
 				erikinkeho.AddForce (transform.up * 500);	
 
 			}
 
-			if (direction.Equals ("up") && grounded && JumpLevel) {						// hyppää ylöspäin
+			if (direction.Equals ("up") && grounded && JumpLevel) {						// jumps
 				Debug.Log ("Hypppppyyyyy");
 				animator.SetInteger ("jump", 7);	
 
@@ -84,7 +84,7 @@ public class ErikController : MonoBehaviour
 			
 			}
 
-			if (direction.Equals ("down") && grounded && JumpLevel) {					//crouchaa
+			if (direction.Equals ("down") && grounded && JumpLevel) {					//crouches
 				animator.SetInteger ("crouch", 4);	
 				objektiivi.offset = new Vector2 (objektiivi.offset.x, -9);
 
@@ -94,11 +94,11 @@ public class ErikController : MonoBehaviour
 
 	//----------Colliding------------------------------------------------------------------------------------------------------------------------------------------
 
-	void OnCollisionEnter2D (Collision2D coll)											// törmäyksen metodi
+	void OnCollisionEnter2D (Collision2D coll)											// hitting method
 	{
 		Debug.Log ("test");
-		if (coll.gameObject.tag == "Enemy") {											// jos erik törmää objectiin jolle on määrätty tagi Enemy
-			animator.SetInteger ("die", 3);													// suorittaa animaation "die"
+		if (coll.gameObject.tag == "Enemy") {											// if erik hits an object tagged enemy
+			animator.SetInteger ("die", 3);													// does the die animation
 
 			dead = true;																	
 
@@ -106,8 +106,8 @@ public class ErikController : MonoBehaviour
 			GetComponent<RespectCounter> ().OnDeath ();
 
 		}
-		if (coll.gameObject.tag == "Ground") {											// erik osuu maahan
-			animator.SetInteger ("jump", 6);											// animaatio palautuu juoksuksi
+		if (coll.gameObject.tag == "Ground") {											// erik hits the floor
+			animator.SetInteger ("jump", 6);											// animation returns to running
 			Debug.Log ("toimii");
 			grounded = true;
 		
@@ -116,7 +116,7 @@ public class ErikController : MonoBehaviour
 
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	void OnTriggerEnter2D ()															// tarkistaa onko hahmo maassa
+	void OnTriggerEnter2D ()															// checks if the character is grounded
 	{																			
 		grounded = true;
 	}

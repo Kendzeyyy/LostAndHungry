@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-// Liikkuvien vihollisten ohjain
+// Controller for the moving enemies
 // Author: Jenna Kopra
 
 public class MovingEnemy : Enemies {										// perii Enemies classin
